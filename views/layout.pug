@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title= title
+    script(src='https://code.jquery.com/jquery-1.8.2.min.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    // link(rel='stylesheet', href='data/styles.css')
+    block scripts
+  body(onload='onLoad();')
+    #banner
+        h1.banner-text Patient Care Portal
+    block content
+    #footer
+        #status-bar
+            h3#status-msg
+            #working.hidden
+                img(src='/images/ellipsis.gif')

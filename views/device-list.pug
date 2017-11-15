@@ -1,0 +1,23 @@
+extends layout
+	
+block scripts
+	script(src='/javascripts/device-list.js')
+	link(rel='stylesheet', href='/stylesheets/style.css')
+	link(rel='stylesheet', href='/stylesheets/magic.css')
+
+include partials/device
+
+block content
+	#tdiv
+		table#nav
+			tr
+				td#appointments Appointments
+				td.selected Register Device
+				td#prescriptions Prescriptions
+				td#administration Administration
+				td#therapy Therapy
+		#device-list
+			each device in devices
+				if (device)
+					+device-details(device)
+

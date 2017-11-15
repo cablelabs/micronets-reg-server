@@ -1,0 +1,177 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #9fdcfb;
+  overflow: hidden;
+}
+
+body::after {
+  content: "";
+  background: url('/images/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+a {
+  color: #00B7FF;
+}
+
+#banner {
+	margin: 20px;
+	margin-bottom: 0px;
+	height: 100px;
+	background-image: url('/images/alpine.png');
+	background-repeat: no-repeat;
+	background-position: left;
+	background-color: white;
+	border-top-left-radius: 40px;
+
+}
+
+h1.banner-text {
+	text-align: left;
+	margin-top: 0;
+	margin-left: 350px;
+	padding-top: 20px;
+	font: 40px "Belgium", Helvetica, Arial, sans-serif;
+	color: #3e87c9;
+}
+
+#nav {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	table-layout: fixed; 
+	width: 100%;
+	border-spacing: 0px;
+}
+
+#nav td {
+	background-color: #3e87c9;
+	color: white;
+	margin: 0;
+	padding: 6px;
+	text-align: center;
+	border-bottom: 2px solid transparent;
+}
+
+#nav td.selected {
+	color: #3e87c9;
+	background-color: white;
+	border-bottom: 2px solid #3e87c9;
+	border-bottom: 2px solid transparent;
+	box-sizing: content-box;
+	font-weight: bold;
+}
+
+#nav td:hover {
+	background-color: #7fc2e4;
+	border-bottom: none;
+	color: white;
+	font-weight: normal;
+}
+
+#tdiv {
+	margin: 20px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#footer {
+	background-color: white;
+	width: 100%;
+	height: 40px;
+	min-height: 40px;
+	position: absolute;
+	bottom: 0px;
+	border-top: solid 2px #3e87c9;
+	padding-top: 10px;
+}
+
+#status-msg {
+	color:  #3e87c9;
+	text-align: center;
+	margin: 0px;
+	font-size: 150%;
+
+}
+
+#working {
+	position: absolute;
+	right: 8px;
+	bottom: 10px;
+}
+
+.hidden {
+	opacity: 0;
+}
+
+#device-list {
+	margin: 100px auto;
+	max-width: 450px;
+}
+
+.device {
+	border-radius: 10px;
+	border: 3px solid #4288c7;
+	border: 3px solid #51914a;
+	min-width: 400px;
+	max-width: 400px;
+	height: 150px;
+	background-color: white;
+	opacity: 0;
+	text-align: center;
+	margin-bottom: 20px;
+	background-color: #346eaa;
+	background-color: white;
+}
+
+div.header {
+	background: #4288c7;
+	background: #51914a;
+	margin-top: 0;
+	padding-top: 3spx;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	height: 40px;
+	line-height: 40px;
+	white-space: nowrap;
+}
+
+div.header h3 {
+	margin-top: 0;
+	color: white;
+}
+
+div.detail {
+}
+
+table.device-details {
+	font-size: 125%;
+	height: 100%;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+table.device-details td.key {
+	text-align: right;
+	padding-left: 20px;
+	width: 40%;
+	font-weight: bold;
+}
+
+table.device-details td.val {
+	text-align: left;
+	padding-left: 20px;
+}
+
+
