@@ -1,0 +1,12 @@
+[ req ]
+prompt          = no
+distinguished_name  = client
+default_bits        = 2048
+
+[client]
+countryName     = US
+stateOrProvinceName = Colorado
+localityName        = Louisville
+organizationName    = CableLabs
+emailAddress        = micronets@cablelabs.com
+commonName          = medicalDevice

@@ -1,0 +1,5 @@
+#!/bin/bash
+rm -f newcerts/*
+echo "01\n" > serial
+rm -f index.txt
+touch index.txt

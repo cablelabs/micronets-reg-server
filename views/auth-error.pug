@@ -1,0 +1,17 @@
+header.modal-header
+	h2 An error occurred during device authorization
+	a.boxclose(href='#', onclick='hideModal();')
+		img(src='/images/close_btn.png', width='30', height='30')
+.modal-body
+	table#errorTable
+		tr
+			th Status
+			th Message
+		tr
+			td error.status
+			td error.message
+
+footer.modal-footer
+
+
+

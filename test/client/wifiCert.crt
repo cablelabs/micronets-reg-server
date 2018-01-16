@@ -1,0 +1,70 @@
+Certificate:
+    Data:
+        Version: 1 (0x0)
+        Serial Number: 30 (0x1e)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=Colorado, L=Louisville, O=CableLabs/emailAddress=secblanket@cablelabs.com, CN=Local Micronets Certificate Authority
+        Validity
+            Not Before: Jan  5 23:55:13 2018 GMT
+            Not After : Mar  6 23:55:13 2018 GMT
+        Subject: C=US, ST=Colorado, O=CableLabs, CN=medicalDevice/emailAddress=micronets@cablelabs.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:cf:31:ff:73:9d:41:18:45:19:24:40:cd:e1:14:
+                    90:3f:e3:06:b9:99:0c:76:7a:53:b2:01:de:83:9f:
+                    ac:91:5e:7f:0c:0d:28:c6:0e:9c:05:c8:fa:6c:63:
+                    4c:a2:9f:76:a0:94:73:43:de:6d:10:7b:ad:2d:b6:
+                    76:67:09:f4:ac:ef:15:1e:68:0c:54:d2:ad:f8:0b:
+                    12:72:b3:70:c5:51:d6:ce:d4:b7:ea:0b:c3:e4:9e:
+                    73:ac:75:e0:7c:31:2e:60:04:23:f6:a7:4f:85:bd:
+                    12:37:07:be:ac:ab:c4:21:f1:96:06:39:46:29:76:
+                    ce:27:f8:ac:65:ef:3d:be:da:72:25:0b:58:83:e7:
+                    cb:da:b7:ce:5c:c3:6b:4e:1a:ef:64:3f:2b:d7:9d:
+                    5c:ff:49:fd:26:00:cf:24:f4:70:1c:1a:f3:4a:a8:
+                    ba:97:98:f4:6b:8a:ea:33:c4:32:22:f2:93:79:a7:
+                    28:f6:80:f4:b9:bc:95:f9:ab:2b:a4:ae:9e:b8:e3:
+                    63:a2:ad:cc:10:f2:f3:d4:ea:bd:b0:d8:dc:9e:20:
+                    e9:0d:1a:a0:8b:2d:f0:46:28:04:a7:e8:5e:7f:1b:
+                    31:81:9d:40:fc:e6:d5:71:0a:c4:e5:7a:19:ea:8c:
+                    25:b8:ca:96:48:65:ff:6e:6b:37:53:c6:9f:44:71:
+                    6a:77
+                Exponent: 65537 (0x10001)
+    Signature Algorithm: sha256WithRSAEncryption
+         56:8c:3b:63:4b:ca:82:1a:71:fb:41:9a:a6:a0:a5:2a:0e:3e:
+         af:77:d8:7f:23:06:0a:ad:aa:0f:94:69:7e:ef:23:de:aa:bb:
+         02:83:78:35:ee:37:31:50:c3:b2:90:18:c7:cf:0c:f6:dd:7a:
+         7d:88:44:8d:68:03:31:44:a1:b9:1f:c6:45:5e:e2:a0:8a:5e:
+         b8:a4:71:2a:07:31:01:9c:eb:a3:14:29:7d:8b:8c:ec:b6:18:
+         fc:6b:4a:4e:b6:ce:9e:69:8e:b6:cf:ab:2f:56:62:f3:94:4a:
+         77:c1:1b:50:97:8c:71:5a:0a:f4:77:23:a0:dd:93:04:31:71:
+         70:fa:57:8f:89:a9:f4:fe:3e:d7:5c:57:7f:b0:22:07:2c:19:
+         ee:8b:35:5a:34:42:2b:d8:4b:e0:c5:3a:5b:f9:07:65:c8:d0:
+         2b:22:c1:1f:32:f8:1d:ce:e8:2d:77:2b:59:5f:51:ad:ef:13:
+         5d:09:17:6b:8d:e9:7c:81:bd:05:30:42:a4:b3:38:b6:81:14:
+         03:0d:5c:8b:4b:45:3d:37:fe:71:70:e5:cd:2e:28:d0:c5:4e:
+         61:04:9d:48:cf:02:28:0c:cd:f0:4c:f4:8d:79:60:52:95:ff:
+         ea:c2:20:01:03:3b:4b:95:b2:ce:c8:59:b9:4f:bd:1e:17:f7:
+         c0:4b:74:a3
+-----BEGIN CERTIFICATE-----
+MIIDizCCAnMCAR4wDQYJKoZIhvcNAQELBQAwgaIxCzAJBgNVBAYTAlVTMREwDwYD
+VQQIDAhDb2xvcmFkbzETMBEGA1UEBwwKTG91aXN2aWxsZTESMBAGA1UECgwJQ2Fi
+bGVMYWJzMScwJQYJKoZIhvcNAQkBFhhzZWNibGFua2V0QGNhYmxlbGFicy5jb20x
+LjAsBgNVBAMMJUxvY2FsIE1pY3JvbmV0cyBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkw
+HhcNMTgwMTA1MjM1NTEzWhcNMTgwMzA2MjM1NTEzWjB0MQswCQYDVQQGEwJVUzER
+MA8GA1UECAwIQ29sb3JhZG8xEjAQBgNVBAoMCUNhYmxlTGFiczEWMBQGA1UEAwwN
+bWVkaWNhbERldmljZTEmMCQGCSqGSIb3DQEJARYXbWljcm9uZXRzQGNhYmxlbGFi
+cy5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDPMf9znUEYRRkk
+QM3hFJA/4wa5mQx2elOyAd6Dn6yRXn8MDSjGDpwFyPpsY0yin3aglHND3m0Qe60t
+tnZnCfSs7xUeaAxU0q34CxJys3DFUdbO1LfqC8PknnOsdeB8MS5gBCP2p0+FvRI3
+B76sq8Qh8ZYGOUYpds4n+Kxl7z2+2nIlC1iD58vat85cw2tOGu9kPyvXnVz/Sf0m
+AM8k9HAcGvNKqLqXmPRriuozxDIi8pN5pyj2gPS5vJX5qyukrp6442OircwQ8vPU
+6r2w2NyeIOkNGqCLLfBGKASn6F5/GzGBnUD85tVxCsTlehnqjCW4ypZIZf9uazdT
+xp9EcWp3AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAFaMO2NLyoIacftBmqagpSoO
+Pq932H8jBgqtqg+UaX7vI96quwKDeDXuNzFQw7KQGMfPDPbden2IRI1oAzFEobkf
+xkVe4qCKXrikcSoHMQGc66MUKX2LjOy2GPxrSk62zp5pjrbPqy9WYvOUSnfBG1CX
+jHFaCvR3I6DdkwQxcXD6V4+JqfT+PtdcV3+wIgcsGe6LNVo0QivYS+DFOlv5B2XI
+0CsiwR8y+B3O6C13K1lfUa3vE10JF2uN6XyBvQUwQqSzOLaBFAMNXItLRT03/nFw
+5c0uKNDFTmEEnUjPAigMzfBM9I15YFKV/+rCIAEDO0uVss7IWblPvR4X98BLdKM=
+-----END CERTIFICATE-----

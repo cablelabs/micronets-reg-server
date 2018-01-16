@@ -1,6 +1,7 @@
 
 mixin device-details(details)
-	div(id=details.index).device(onclick="clickDevice(this);")
+	div.device(id=details.device.UID, onclick="clickDevice(this);")
+		div.json=JSON.stringify(details)
 		div.header
 			h3.dev-name=details.device.TYPE
 		div.detail
@@ -14,6 +15,4 @@ mixin device-details(details)
 				tr
 					td.key SN#
 					td.val=details.device.SN
-				tr.hidden
-					td.key UID
-					td.val=details.device.UID
+

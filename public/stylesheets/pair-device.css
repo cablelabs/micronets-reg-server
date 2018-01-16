@@ -1,0 +1,63 @@
+.device {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 30px;
+}
+
+#modal-header-text {
+	text-align: center;
+}
+.modal-body {
+	background-color: white;
+	padding-top: 30px;	
+	padding-bottom: 30px;
+	background-image: url('../images/secure-wifi.gif');
+	background-position: right;
+	background-repeat: no-repeat;
+
+}
+.modal-body.finished {
+	background-image: url('../images/secure-wifi.png');
+}
+
+.device .header {
+	margin-top: -1px;
+}
+.device table {
+	max-height: 90px;
+}
+
+.w3-modal footer {
+	min-height: 50px;
+}
+
+.w3-modal{
+}
+
+.w3-modal-content {
+	min-width: 700px;
+	width: 700px;
+}
+#SSID {
+	position: absolute;
+	right: 10px;
+	bottom: 57px;
+	color: black;
+	font-size: 14px;
+	min-width: 180px;
+	text-align: center;
+
+}
+progress {
+	height: 10px;
+	margin: 20px;
+	width: 625px;
+	xmin-height: 10px;
+}
+
+.device-registered {
+    position: absolute;
+    right: 41%;
+    top: 46%;
+}
+

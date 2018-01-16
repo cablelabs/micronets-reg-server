@@ -2,10 +2,12 @@ extends layout
 	
 block scripts
 	script(src='/javascripts/device-list.js')
+	script(src='/javascripts/xhr.js')
+	script(src='/javascripts/post-robot.min.js')
 	link(rel='stylesheet', href='/stylesheets/style.css')
 	link(rel='stylesheet', href='/stylesheets/magic.css')
 
-include partials/device
+include mixins/device
 
 block content
 	#tdiv
@@ -20,4 +22,21 @@ block content
 			each device in devices
 				if (device)
 					+device-details(device)
+	#modalCurtain
 
+	#modalError.w3-modal.invisible(style="display: none", onclick='dismissError();')
+		.w3-modal-content.rounded-frame
+			header.w3-container
+				a.boxclose(href='#', onclick='dismissError();')
+					img(src='/images/close_btn.png', width='30', height='30')
+				|             
+				#modal-header-text.h2 System Error
+			|         
+			.w3-modal-body.w3-container
+				h2#errorDescription
+				table#errorTable
+					tr
+						th#errorStatus
+						td#errorMessage
+			|        
+			footer.w3-container

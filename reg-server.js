@@ -1,4 +1,6 @@
-#!/usr/bin/env node
+'use strict'
+
+// TODO: https support
 
 /**
  * Note: This was bin/www, now moved here. Keeping separate from app so that we can upgrade to https later.
@@ -87,5 +89,5 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  console.log('Micronets Registration Server is listening on ' + bind);
 }
