@@ -1,0 +1,7 @@
+node_modules
+boneyard
+test
+tmp
+.git
+.gitignore
+README.md
