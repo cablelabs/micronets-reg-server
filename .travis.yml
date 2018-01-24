@@ -1,6 +1,6 @@
 sudo: required #is required to use docker service in travis
 
-language: php #can be any language, just php for example
+language: node_js #can be any language, just php for example
 
 services:
   - docker # required, but travis uses older version of docker :(
