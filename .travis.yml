@@ -20,4 +20,4 @@ after_success:
   - docker tag cablelabs/reg-server 565703495208.dkr.ecr.us-east-1.amazonaws.com/cablelabs/reg-server:latest
   - docker push 565703495208.dkr.ecr.us-east-1.amazonaws.com/cablelabs/reg-server:latest
   
-# sadly, travis doesn't cache docker builds yet, so each build will take a while :-(
+# sadly, travis doesn't cache docker builds yet, so each build will take a while
