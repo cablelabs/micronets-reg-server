@@ -3,10 +3,10 @@ extends layout
 include ./mixins/device
 
 block scripts
-	script(src='/javascripts/pair-device.js')
-	script(src='/javascripts/xhr.js')
-	link(rel='stylesheet', href='/stylesheets/style.css')
-	link(rel='stylesheet', href='/stylesheets/pair-device.css')
+	script(src='../javascripts/pair-device.js')
+	script(src='../javascripts/xhr.js')
+	link(rel='stylesheet', href='../stylesheets/style.css')
+	link(rel='stylesheet', href='../stylesheets/pair-device.css')
 
 block content
 	#tdiv
@@ -21,12 +21,12 @@ block content
 		.w3-modal-content.rounded-frame
 			header.w3-container
 				a.boxclose(href='#', onclick='endPairing();', style='display: none')
-					img(src='/images/close_btn.png', width='30', height='30')
+					img(src='../images/close_btn.png', width='30', height='30')
 				#modal-header-text.h2 Adding Device to WiFi Network
 			.modal-body
 				+device-details(device)
 				a.device-registered(href='#', style='display: none')
-					img(src='/images/green-check.png', width='60', height='60')
+					img(src='../images/green-check.png', width='60', height='60')
 				h2#SSID=ssid
 			footer.w3-container
 				progress#progress(max='100', value='0')

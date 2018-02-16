@@ -29,7 +29,7 @@
  // JSHint 
  /*global XMLHttpRequest*/ 
 
- 'use strict'
+ 'use strict';
 
  (function (){
 

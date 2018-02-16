@@ -8,7 +8,7 @@ body {
 
 body::after {
   content: "";
-  background: url('/images/background.jpg');
+  background: url('../images/background.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -29,7 +29,7 @@ a {
 	margin: 20px;
 	margin-bottom: 0px;
 	height: 100px;
-	background-image: url('/images/alpine.png');
+	background-image: url('../images/alpine.png');
 	background-repeat: no-repeat;
 	background-position: left;
 	background-color: white;

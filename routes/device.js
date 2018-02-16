@@ -1,8 +1,8 @@
 'use strict'
 
 /* Handle device requests 
-   - Advertise onboard availability
-   - CSR
+   - Advertise onboard availability, CSR  template returned.
+   - Request Certificate
    - Reset device
  */
 
@@ -10,7 +10,7 @@ const express = require('express');
 const router = express.Router();
 const deviceMap = require('../lib/device-map.js');
 
-deviceMap.debug = true
+//deviceMap.debug = true;
 
 router.get('/list', function(req, res, next) {
     res.send(JSON.stringify(deviceMap.devices()));

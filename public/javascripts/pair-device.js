@@ -1,15 +1,15 @@
 'use strict'
 
+let baseURL = location.href.substring(0,location.href.indexOf('portal/pair-device'));
+
 function onLoad() {
 
 	const searchParams = new URLSearchParams(location.search)
 	const uid = searchParams.get("uid");
 
-	//return;
 	// Make device details visible (reusing mixin from device list)
 	$('.device').css('opacity', 1);
 	$('.device').off('click');
-
 
 	let state = 0;
 	let limit = 0;
@@ -19,7 +19,7 @@ function onLoad() {
 	// Poll registration server for status as pairing progresses.
 	function getStatus() {
 	    const request = new XMLHttpRequest();
-	    const url = location.origin + '/portal/pair-status/' + uid;
+	    const url = baseURL + 'portal/pair-status/' + uid;
 	    request.issue(url, function(response){
 	        if (response.httpStatus === 200) {
 	        	let status = JSON.parse(response.responseText);
@@ -72,5 +72,5 @@ function onLoad() {
 }
 
 function endPairing() {
-	location.href = "/portal/device-list";
+	location.href = baseURL + "portal/device-list";
 }

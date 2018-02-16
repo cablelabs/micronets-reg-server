@@ -1,15 +1,16 @@
 extends layout
 	
 block scripts
-	script(src='/javascripts/device-list.js')
-	script(src='/javascripts/xhr.js')
-	script(src='/javascripts/post-robot.min.js')
-	link(rel='stylesheet', href='/stylesheets/style.css')
-	link(rel='stylesheet', href='/stylesheets/magic.css')
+	script(src='../javascripts/device-list.js')
+	script(src='../javascripts/xhr.js')
+	script(src='../javascripts/post-robot.min.js')
+	link(rel='stylesheet', href='../stylesheets/style.css')
+	link(rel='stylesheet', href='../stylesheets/magic.css')
 
 include mixins/device
 
 block content
+	#auth-server-url(style="display: none")=auth_server_url
 	#tdiv
 		table#nav
 			tr
@@ -28,7 +29,7 @@ block content
 		.w3-modal-content.rounded-frame
 			header.w3-container
 				a.boxclose(href='#', onclick='dismissError();')
-					img(src='/images/close_btn.png', width='30', height='30')
+					img(src='../images/close_btn.png', width='30', height='30')
 				|             
 				#modal-header-text.h2 System Error
 			|         

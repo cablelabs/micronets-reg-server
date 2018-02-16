@@ -7,14 +7,19 @@ var deviceTimer;
 var authTimer;
 var deviceSelected = false;
 var authWindow;
+var deviceID;
 
 const clientID = "clinic-858";
 	
 // This is not the MSO portal
-const msoAuthServer = "http://localhost:9001";
+let msoAuthServer;
 
+// Must match route in routes/portal.js
+let baseURL = location.href.substring(0,location.href.indexOf('portal/device-list'));
 
 function onLoad() {
+
+	msoAuthServer = $('#auth-server-url').html();
 
 	// Initial load has device list populated, but devices are hidden.
 	setTimeout(function(){
@@ -74,7 +79,7 @@ function setStatus() {
 }
 
 function addDevice(UID) {
-	const url = location.protocol + "//" + location.host + "/portal/device-html/"+UID;
+	const url = baseURL + "portal/device-html/"+UID;
     const request = new XMLHttpRequest();
     request.issue(url, function(response){
         if (response.httpStatus === 200) {
@@ -121,7 +126,7 @@ function clickDevice(element) {
 
 	// Tell server we selected the device
     const request = new XMLHttpRequest();
-    const url = location.origin + '/portal/select-device/' + deviceID;
+    const url = baseURL + 'portal/select-device/' + deviceID;
     request.issue(url, function(response){
         if (response.httpStatus === 200) {
         	console.log("Selected device: "+deviceID);
@@ -250,15 +255,17 @@ function showModalPopUp(deviceInfo) {
 		"type": deviceInfo.TYPE,
 		"macAddress": deviceInfo.MAC,
 		"serial": deviceInfo.SN,
-		"redirect_uri": "/portal/pair-device"
+		// This needs to be relative as it will be added to baseURL later using URL()
+		"redirect_uri": "portal/pair-device"
 	};
 
 	const popupWidth = 500;
 	const left = (window.screen.availWidth - popupWidth) / 2;
 
-	console.log("left: "+left);
+	const authUrl = msoAuthServer+"/register-device?" + $.param(query);
+	console.log("authUrl: "+authUrl);
 
-    authWindow = window.open(msoAuthServer+"/register-device?" + $.param(query);),
+    authWindow = window.open(authUrl,
 	    "AuthorizeDevice-"+Math.random().toString().replace(/[^a-z0-9]+/g, ''),
 	    "toolbar=no," +
 	    "scrollbars=no," +
@@ -297,7 +304,7 @@ function showModalPopUp(deviceInfo) {
 function deviceApproved(response, deviceUID) {
 	console.log("deviceApproved: "+JSON.stringify(response));
 	endModal();
-	let u = new URL(response.redirectURI, location.origin);
+	let u = new URL(response.redirectURI, baseURL);
 	const delim = (u.search == "") ? "?" : "&";
     location.href = u.href + delim + 
     	"uid=" + deviceUID + 

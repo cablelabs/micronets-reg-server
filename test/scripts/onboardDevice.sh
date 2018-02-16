@@ -1,15 +1,18 @@
 #!/bin/bash
 
-NUM=1
+# TODO: 404 causes 0 status and script continues.
+
+# usage: ./onboardDevice.sh [reg-server-url [device-index]]
+REGSERVER_URL="http://localhost:3000"
 if [ $# -ge 1 ]
   then
-    NUM=$1
+    REGSERVER_URL=$1
 fi
 
-TIMEOUT=""
+NUM=1
 if [ $# -ge 2 ]
   then
-    TIMEOUT="--max-time $2"
+    NUM=$2
 fi
 
 VENDORS=("AcmeMeds" "ShureCare" "VitaLife")
@@ -21,8 +24,6 @@ INDEX=$(($NUM % 3))
 SERIAL=$(($RANDOM % 1000))
 PREFIX=${SNPF[$INDEX]}
 SN=$(printf "%s-%05d" $PREFIX $SERIAL)
-
-REGSERVER_URL="http://localhost:3000"
 
 #ID=`uuidgen`
 # Use static UIDs for testing
@@ -103,7 +104,7 @@ request_cert() {
   echo "{" > ../tmp/complete.json
   echo "  \"UID\": \"$ID\"" >> ../tmp/complete.json
   echo "}" >> ../tmp/complete.json
-  curl -d @../tmp/complete.json http://"$REGSERVER_URL"/device/pair-complete "${HEADERS[@]}"
+  curl -d @../tmp/complete.json "$REGSERVER_URL/device/pair-complete" "${HEADERS[@]}"
 }
 
 
@@ -111,7 +112,7 @@ while true
 do
     echo " "
     echo "Advertising Device: $DEV"
-    RESPONSE=$(curl $TIMEOUT "$REGSERVER_URL"/device/advertise --header 'Content-Type: application/json' -d "$DEV")
+    RESPONSE=$(curl "$REGSERVER_URL"/device/advertise --header 'Content-Type: application/json' -d "$DEV")
     STATUS=$?
 
     echo "curl status: $STATUS"
@@ -124,6 +125,7 @@ do
     elif [ $STATUS -eq 0 ]; then
         echo "Received response $STATUS from server:"
         echo $RESPONSE
+        # TODO: Fix this - we will get a 0 status on server error/404
         request_cert "$RESPONSE"
         break
     elif [ $STATUS -ne 28 ]; then
