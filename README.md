@@ -161,6 +161,7 @@ The device has received and installed the requested certificates and updated the
 Header Fields:
 
     content-type: "application/json"
+    authorization: "<registration token>"
 
 POST data:
 
