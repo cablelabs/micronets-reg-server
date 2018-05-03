@@ -17,7 +17,7 @@ fi
 
 VENDORS=("AcmeMeds" "ShureCare" "VitaLife")
 TYPES=("Heartrate Monitor" "Nebulizer" "Glucose Monitor")
-MODELS=("Heart-Assure" "Breath-Easy" "Sure-Sugar")
+MODELS=("Heart-Assure" "Breathe-Easy" "Sure-Sugar")
 MACS=("4C:32:75:90:33:B3","08:00:69:02:01:FC","B8:27:EB:BC:23:E5")
 SNPF=("AMHM" "SCNB" "VLGM")
 INDEX=$(($NUM % 3))
@@ -30,12 +30,13 @@ SN=$(printf "%s-%05d" $PREFIX $SERIAL)
 UIDS=("9C5DBA55-48E7-449F-ABD0-B449FFF5EF90" "584BB997-3193-4CD0-BD42-4E9359A58E81" "0889E1BF-B210-49BC-BABD-7E069407B196")
 ID=${UIDS[$INDEX]}
 
-DEV="{ \"UID\" : \"$ID\",\
-       \"SN\" : \"$SN\",\
-       \"MFG\" : \"${VENDORS[$INDEX]}\",\
-       \"TYPE\" : \"${TYPES[$INDEX]}\",\
-       \"MAC\" : \"${MACS[$INDEX]}\",\
-       \"MODEL\" : \"${MODELS[$INDEX]}\"\
+DEV="{ \"deviceID\" : \"$ID\",\
+       \"serial\" : \"$SN\",\
+       \"vendor\" : \"${VENDORS[$INDEX]}\",\
+       \"type\" : \"${TYPES[$INDEX]}\",\
+       \"macAddress\" : \"${MACS[$INDEX]}\",\
+       \"class\" : \"Medical\",\
+       \"model\" : \"${MODELS[$INDEX]}\"\
     }"
 
 # { "csrTemplate": { "keyType": "RSA:2048" }, "token": "OWKIC" }

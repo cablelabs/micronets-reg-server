@@ -40,6 +40,12 @@ router.post('/advertise', function(req, res) {
     deviceMap.advertise(req, res);
 });
 
+// Cancel the advertisement (long poll), if present.
+router.post('/cancel', function(req, res) {
+    console.log("/cancel: "+JSON.stringify(req.body));
+    deviceMap.cancel(req, res);
+});
+
 // The device has created and signed a CSR (using the template returned from advertise)
 // Forward this to the mso portal, along with the registration token.
 router.post('/cert', function(req, res) {

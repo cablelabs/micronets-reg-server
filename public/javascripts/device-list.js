@@ -249,12 +249,13 @@ function showModalPopUp(deviceInfo) {
 
 	const query = {
 		"clientID": clientID,
-		"deviceID": deviceInfo.UID,
-		"vendor": deviceInfo.MFG,
-		"model": deviceInfo.MODEL,
-		"type": deviceInfo.TYPE,
-		"macAddress": deviceInfo.MAC,
-		"serial": deviceInfo.SN,
+		"deviceID": deviceInfo.deviceID,
+		"vendor": deviceInfo.vendor,
+		"model": deviceInfo.model,
+		"type": deviceInfo.type,
+		"macAddress": deviceInfo.macAddress,
+		"serial": deviceInfo.serial,
+		"class": deviceInfo.class,
 		// This needs to be relative as it will be added to baseURL later using URL()
 		"redirect_uri": "portal/pair-device"
 	};

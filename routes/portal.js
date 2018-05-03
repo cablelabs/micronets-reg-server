@@ -11,7 +11,7 @@ const deviceMap = require('../lib/device-map.js');
 // Full UI
 router.get('/device-list', function(req, res) {
     console.log(JSON.stringify(deviceMap.advertisedDevices()));
-    console.log("auth-server-url: "+config.authServerUrl);
+    //console.log("auth-server-url: "+config.authServerUrl);
     res.render('device-list', {devices: deviceMap.advertisedDevices(), 'auth_server_url': config.authServerUrl});
 });
 

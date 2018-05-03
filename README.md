@@ -97,7 +97,7 @@ Header Fields:
 
 POST data:
 
-	{
+  {
       "UID": "584BB997-3193-4CD0-BD42-4E9359A58E81",
       "SN": "SCNB-00523",
       "MFG": "ShureCare",
@@ -111,11 +111,33 @@ POST data:
 Note: This is a long poll. See above description.
 
     {
-  	  "csrTemplate": {
+      "csrTemplate": {
         "keyType": "RSA:2048"
       },
       "token": "RLHEE"
     }
+
+### Cancel Device Advertisement:
+Origin: Device
+Method: POST
+
+The device advertisement, if active, is canceled
+
+#### url: `/device/cancel`
+
+Header Fields:
+
+    content-type: "application/json"
+
+POST data:
+
+  {
+      "UID": "584BB997-3193-4CD0-BD42-4E9359A58E81",
+  }
+
+#### response:
+  Long poll is terminated with a 204 No Data
+  This request returns 200 if long poll in progress, else 404
 
 ### Request Certificate
 Origin: Device
