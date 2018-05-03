@@ -165,7 +165,7 @@ function updateList() {
 		        		
 		        		let found = false;
 		        		deviceList.forEach(function(dev, j) {
-		        			if (dev.device.UID == elem.id) {
+		        			if (dev.device.deviceID == elem.id) {
 		        				found = true;
 		        			}
 		        		});
@@ -180,13 +180,13 @@ function updateList() {
 		        	
 		        		let found = false;
 		        		$('.device').each(function(j, elem) {
-		        			if (elem.id == dev.device.UID) {
+		        			if (elem.id == dev.device.deviceID) {
 		        				found = true;
 		        			}
 		        		});
 
 		        		if (!found) {
-		        			addDevice(dev.device.UID);
+		        			addDevice(dev.device.deviceID);
 		        		}
 		        	});
 	        	}
@@ -284,7 +284,7 @@ function showModalPopUp(deviceInfo) {
     $('#modalCurtain').css("display", "block");
 
     postRobot.on('deviceApproved', function(event) {
-    	deviceApproved(event.data, deviceInfo.UID);
+    	deviceApproved(event.data, deviceInfo.deviceID);
 	});
 
     postRobot.on('error', function(event) {

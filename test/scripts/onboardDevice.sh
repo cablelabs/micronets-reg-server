@@ -78,7 +78,7 @@ request_cert() {
   # Create JSON wrapper
   mkdir -p ../tmp
   echo "{" > ../tmp/csr.json
-  echo "  \"UID\": \"$ID\"," >> ../tmp/csr.json
+  echo "  \"deviceID\": \"$ID\"," >> ../tmp/csr.json
   echo "  \"csr\": \"$CSR\"" >> ../tmp/csr.json
   echo "}" >> ../tmp/csr.json
 
@@ -103,7 +103,7 @@ request_cert() {
   #################################################
 
   echo "{" > ../tmp/complete.json
-  echo "  \"UID\": \"$ID\"" >> ../tmp/complete.json
+  echo "  \"deviceID\": \"$ID\"" >> ../tmp/complete.json
   echo "}" >> ../tmp/complete.json
   curl -d @../tmp/complete.json "$REGSERVER_URL/device/pair-complete" "${HEADERS[@]}"
 }

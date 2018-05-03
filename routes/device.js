@@ -25,13 +25,13 @@ router.post('/advertise', function(req, res) {
         console.log(" - request closed unexpectedly");
         const now = Date.now();
         setTimeout(function(){
-            deviceMap.release(req.body.UID, now);
+            deviceMap.release(req.body.deviceID, now);
         },1000);
     });
 
     req.on("end", function() {
         console.log(" - request ended normally");
-        deviceMap.release(req.body.UID);
+        deviceMap.release(req.body.deviceID);
     });
 
     console.log("received /advertise: " + res);
