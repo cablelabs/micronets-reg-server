@@ -18,7 +18,7 @@ fi
 VENDORS=("AcmeMeds" "ShureCare" "VitaLife")
 TYPES=("Heartrate Monitor" "Nebulizer" "Glucose Monitor")
 MODELS=("Heart-Assure" "Breathe-Easy" "Sure-Sugar")
-MACS=("4C:32:75:90:33:B3","08:00:69:02:01:FC","B8:27:EB:BC:23:E5")
+MACS=("4C:32:75:90:33:B3" "08:00:69:02:01:FC" "B8:27:EB:BC:23:E5")
 SNPF=("AMHM" "SCNB" "VLGM")
 INDEX=$(($NUM % 3))
 SERIAL=$(($RANDOM % 1000))
