@@ -12,7 +12,8 @@ const deviceMap = require('../lib/device-map.js');
 router.get('/device-list', function(req, res) {
     console.log(JSON.stringify(deviceMap.advertisedDevices()));
     //console.log("auth-server-url: "+config.authServerUrl);
-    res.render('device-list', {devices: deviceMap.advertisedDevices(), 'auth_server_url': config.authServerUrl});
+
+    res.render('device-list', {devices: deviceMap.advertisedDevices(), /*'auth_server_url': config.authServerUrl,*/ 'mso_list':config.msos});
 });
 
 // Browser client has received notification that the subscriber has accepted the device (scanned QRCode).
@@ -31,6 +32,14 @@ router.get('/pair-device', function(req, res) {
         }
     });
 });
+
+// Subscriber has selected their MSO
+router.get('/select-mso/:index', function(req, res) {
+    config.msoIndex = parseInt(req.params.index);
+    console.log("select-mso: "+config.msoIndex+"  authServerURL: "+config.authServerUrl());
+    res.send(config.authServerUrl());
+});
+
 
 // Subscriber has selected the device (we don't know who subscriber is yet) (XHR)
 router.get('/select-device/:uid', function(req, res) {

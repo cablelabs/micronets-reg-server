@@ -10,8 +10,17 @@ block scripts
 include mixins/device
 
 block content
-	#auth-server-url(style="display: none")=auth_server_url
 	#tdiv
+		#mso-select.mso-select.centered
+			div.header
+				h3.dev-name Select a Network Provider
+			div.selector
+				select(name=selector placeholder=placeholder id=selector)
+					each mso in mso_list
+						option #{mso.name}	
+			div.btn-div
+				button.btn.btn-primary(type='submit', onclick='selectMSO();') Next		
+
 		table#nav
 			tr
 				td#appointments Appointments
@@ -23,6 +32,7 @@ block content
 			each device in devices
 				if (device)
 					+device-details(device)
+
 	#modalCurtain
 
 	#modalError.w3-modal.invisible(style="display: none", onclick='dismissError();')

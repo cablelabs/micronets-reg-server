@@ -8,6 +8,7 @@ var authTimer;
 var deviceSelected = false;
 var authWindow;
 var deviceID;
+var deviceInfo;
 
 const clientID = "clinic-858";
 	
@@ -18,6 +19,10 @@ let msoAuthServer;
 let baseURL = location.href.substring(0,location.href.indexOf('portal/device-list'));
 
 function onLoad() {
+
+	// !! Need to download MSO configuration array
+	// !! MSO Selection screen determines msoAuthServer
+	// !! Need to pass selected MSO to pair-device
 
 	msoAuthServer = $('#auth-server-url').html();
 
@@ -111,6 +116,35 @@ function removeDevice(elemID) {
   	$(element).addClass("begone");
 }
 
+function selectMSO() {
+	// Tell server we selected the mso
+    const request = new XMLHttpRequest();
+    var msoIndex = $(".selector select")[0].selectedIndex;
+    const url = baseURL + 'portal/select-mso/' + msoIndex;
+    request.issue(url, function(response){
+        if (response.httpStatus === 200) {
+        	msoAuthServer = response.responseText;
+        	console.log("Selected MSO: "+msoIndex+" - authServerURL: " + msoAuthServer);
+
+			$('#mso-select').removeClass("arrive").addClass("begone");
+
+        	setTimeout(function(){
+				showModalPopUp(deviceInfo.device);
+				// Remove before authenticating. If we cancel, or encounter an error, we will see the device reappearing.
+				removeDevice(deviceID);
+			},500);
+
+        }
+        else {
+            const msg = response.error ? response.error : "HTTP 1.0 "+response.httpStatus;
+            var errmsg = "Failed to select MSO - "+ msg + " - "+response.responseText;
+            console.log(errmsg);
+            alert(errmsg);
+        }
+    });
+
+}
+
 function clickDevice(element) {
 
 	// disable device updates
@@ -131,13 +165,21 @@ function clickDevice(element) {
         if (response.httpStatus === 200) {
         	console.log("Selected device: "+deviceID);
 			const json = $('#'+deviceID+' .json').html();
-			const deviceInfo = JSON.parse(json);
+			deviceInfo = JSON.parse(json);
 
+			// TODO: Need to select MSO here, and then call a function that calls the code below.
+			$('#'+deviceID).removeClass("magic-in").addClass("begone")
+
+			setTimeout(function(){
+				$('#mso-select').addClass("magictime arrive");
+			}, 500);
+			/*
 			setTimeout(function(){
 				showModalPopUp(deviceInfo.device);
 				// Remove before authenticating. If we cancel, or encounter an error, we will see the device reappearing.
 				removeDevice(deviceID);
 			},500);
+			*/
         }
         else {
             const msg = response.error ? response.error : "HTTP 1.0 "+response.httpStatus;

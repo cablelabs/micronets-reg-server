@@ -244,6 +244,29 @@ Copyright (c) 2016 Christian Pucci
   }
 }
 
+.arrive {
+  animation-name: arrive;
+  animation-duration: .5s;
+}
+@keyframes arrive {
+  0% {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+
+  100% {
+    opacity: 1;
+    xheight: 0px;
+    xmargin-bottom: 0px;
+    xborder-width: 0px;
+  }
+}
+
 .shrink-up {
   height: 0px;
   margin-bottom: 0px;

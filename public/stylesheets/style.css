@@ -126,10 +126,9 @@ h1.banner-text {
 
 .device {
 	border-radius: 10px;
-	border: 3px solid #4288c7;
 	border: 3px solid #51914a;
-	min-width: 400px;
-	max-width: 400px;
+	min-width: 500px;
+	max-width: 500px;
 	height: 150px;
 	background-color: white;
 	opacity: 0;
@@ -138,9 +137,81 @@ h1.banner-text {
 	background-color: #346eaa;
 	background-color: white;
 }
+.mso-select {
+	border-radius: 10px;
+	border: 3px solid #3371b9;
+	min-width: 500px;
+	max-width: 500px;
+	height: 200px;
+	background-color: white;
+	opacity: 0;
+	text-align: center;
+	margin-bottom: 20px;
+	background-color: #346eaa;
+	background-color: white;
+}
+
+.mso-select.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -250px;
+}
+
+.mso-select .header {
+	background: #3371b9;
+	margin-top: 0;
+	padding-top: 3spx;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	height: 40px;
+	line-height: 40px;
+	white-space: nowrap;
+}
+
+.selector {
+	margin-top: 30px;
+	/*
+	margin-left: 120px;
+	margin-right: 120px;
+    border: 1px solid #ccc;
+    width: 120px;
+    height: 60px;
+    border-radius: 3px;
+    overflow: hidden;
+    xbackground: #fafafa url("images/icon-select.png") no-repeat 90% 50%;
+    background: #fafafa url("data:image/png;base64,R0lGODlhDwAUAIABAAAAAP///yH5BAEAAAEALAAAAAAPABQAAAIXjI+py+0Po5wH2HsXzmw//lHiSJZmUAAAOw==") no-repeat 90% 50%;
+	*/
+}
+
+.btn-div {
+	margin-top: 30px;
+	font-size: 150%;
+}
+
+.selector select {
+	/*
+    padding: 5px 8px;
+    xwidth: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+	appearance: none;
+	*/
+    
+}
+
+.selector select:focus {
+    outline: none;
+}
+.mso-select .header h3 {
+	margin-top: 0;
+	color: white;
+}
 
 div.header {
-	background: #4288c7;
 	background: #51914a;
 	margin-top: 0;
 	padding-top: 3spx;
