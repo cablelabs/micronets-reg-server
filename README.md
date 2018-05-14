@@ -205,7 +205,8 @@ Empty response
 - *reg-server.js* - application wrapper (http server)
 - *app.js* - application main
 - *lib/* - local modules
-- *node-modules* - installed modules
+- *node-modules/* - installed modules
+- *doc/* - documentation files
 - *public/* - express resources (images, .js, .css, etc)
 - *routes/* -
 	- *index.js* - default routes (not used)
