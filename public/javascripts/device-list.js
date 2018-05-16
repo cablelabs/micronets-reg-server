@@ -169,6 +169,7 @@ function clickDevice(element) {
 
 			// TODO: Need to select MSO here, and then call a function that calls the code below.
 			$('#'+deviceID).removeClass("magic-in").addClass("begone")
+			$('#'+deviceID).css('z-index', -10);
 
 			setTimeout(function(){
 				$('#mso-select').addClass("magictime arrive");
