@@ -297,6 +297,8 @@ function showModalPopUp(deviceInfo) {
 		"model": deviceInfo.model,
 		"type": deviceInfo.type,
 		"macAddress": deviceInfo.macAddress,
+		"deviceConnection": deviceInfo.deviceConnection,
+		"deviceName": deviceInfo.deviceName,
 		"serial": deviceInfo.serial,
 		"class": deviceInfo.class,
 		// This needs to be relative as it will be added to baseURL later using URL()
