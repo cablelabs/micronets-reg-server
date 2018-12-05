@@ -363,4 +363,8 @@ a.boxclose {
     display:none;
 }
 
+.topmost {
+	z-index: 1000;
+}
+
 

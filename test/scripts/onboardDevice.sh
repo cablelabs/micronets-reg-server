@@ -22,6 +22,7 @@ DCLASS=("Medical" "Home-Automation" "Medical")
 CONNECTIONS=("wifi" "wired" "wifi")
 MODELS=("Heart-Assure" "Breathe-Easy" "Sure-Sugar")
 MACS=("4C:32:75:90:33:B3" "08:00:69:02:01:FC" "B8:27:EB:BC:23:E5")
+MUIDS=("CQQPBgMCCwk" "BQ0LDQsMDAM" "DgYHAAALAgQ")
 SNPF=("AMHM" "SCNB" "VLGM")
 INDEX=$(($NUM % 3))
 SERIAL=$(($RANDOM % 1000))
@@ -42,7 +43,8 @@ DEV="{ \"deviceID\" : \"$ID\",\
        \"class\" : \"${DCLASS[$INDEX]}\",\
        \"deviceName\" : \"${NAMES[$INDEX]}\",\
        \"deviceConnection\" : \"${CONNECTIONS[$INDEX]}\",\
-       \"model\" : \"${MODELS[$INDEX]}\"\
+       \"model\" : \"${MODELS[$INDEX]}\",\
+       \"modelUID64\" : \"${MUIDS[$INDEX]}\"\
     }"
 
 # { "csrTemplate": { "keyType": "RSA:2048" }, "token": "OWKIC" }

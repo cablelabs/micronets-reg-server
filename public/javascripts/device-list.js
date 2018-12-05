@@ -118,6 +118,7 @@ function removeDevice(elemID) {
 
 function selectMSO() {
 	// Tell server we selected the mso
+	console.log("selectMSO()");
     const request = new XMLHttpRequest();
     var msoIndex = $(".selector select")[0].selectedIndex;
     const url = baseURL + 'portal/select-mso/' + msoIndex;
@@ -126,7 +127,9 @@ function selectMSO() {
         	msoAuthServer = response.responseText;
         	console.log("Selected MSO: "+msoIndex+" - authServerURL: " + msoAuthServer);
 
+        	$('#mso-select').removeClass("topmost");
 			$('#mso-select').removeClass("arrive").addClass("begone");
+
 
         	setTimeout(function(){
 				showModalPopUp(deviceInfo.device);
@@ -146,6 +149,8 @@ function selectMSO() {
 }
 
 function clickDevice(element) {
+
+	console.log("clickDevice");
 
 	// disable device updates
 	deviceSelected = true;
@@ -173,6 +178,8 @@ function clickDevice(element) {
 
 			setTimeout(function(){
 				$('#mso-select').addClass("magictime arrive");
+				$('#mso-select').addClass("topmost");
+
 			}, 500);
 			/*
 			setTimeout(function(){
@@ -289,7 +296,7 @@ function modalError(error) {
 }
 // Here to logically redirect to the authorization server (not an actual redirect, but a modal popup browser window)
 function showModalPopUp(deviceInfo) {
-
+	console.log("showModalPopup");
 	const query = {
 		"clientID": clientID,
 		"deviceID": deviceInfo.deviceID,
@@ -301,6 +308,8 @@ function showModalPopUp(deviceInfo) {
 		"deviceName": deviceInfo.deviceName,
 		"serial": deviceInfo.serial,
 		"class": deviceInfo.class,
+		"modelUID64": deviceInfo.modelUID64,
+		"mudURL": deviceInfo.mudURL,
 		// This needs to be relative as it will be added to baseURL later using URL()
 		"redirect_uri": "portal/pair-device"
 	};

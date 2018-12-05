@@ -45,9 +45,11 @@ router.get('/select-mso/:index', function(req, res) {
 router.get('/select-device/:uid', function(req, res) {
     deviceMap.selectDevice(req.params.uid, function(err) {
         if (!err) {
+            console.log("Device Selected: "+req.params.uid);
             res.status(200).end();                 
         }
         else {
+            console.log(JSON.stringify(err));
             res.status(err.status);
             res.send(err.message);                
         }
