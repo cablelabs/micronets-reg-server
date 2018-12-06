@@ -18,6 +18,17 @@ let msoAuthServer;
 // Must match route in routes/portal.js
 let baseURL = location.href.substring(0,location.href.indexOf('portal/device-list'));
 
+// popup checker
+var childWindow;
+var cookieName = "popups-enabled";
+function popupCallback() {
+	console.log("child called back");
+	Cookies.set(cookieName, "true");
+	setTimeout(function(){
+		childWindow.close();
+	}, 3000);
+}
+
 function onLoad() {
 
 	// !! Need to download MSO configuration array
@@ -63,6 +74,25 @@ function onLoad() {
 			approveCancel();
 		}
 	});
+
+	// Ensure user has popups enabled for this site.
+	function popupCheck() {
+		console.log("onLoad");
+
+		if (!Cookies.get(cookieName)) {
+			console.log("popup cookie not set yet");
+
+			childWindow = window.open("/portal/popup-check", "", "width=400, height=10" );
+
+			var timer = setTimeout(function(){
+				if (!Cookies.get(cookieName)) {
+					alert("Please Allow Popups for this site (Micronets Demo)");
+				}
+			}, 3000);
+		}
+	}
+	popupCheck();
+
 }
 
 function setStatus() {
@@ -181,13 +211,6 @@ function clickDevice(element) {
 				$('#mso-select').addClass("topmost");
 
 			}, 500);
-			/*
-			setTimeout(function(){
-				showModalPopUp(deviceInfo.device);
-				// Remove before authenticating. If we cancel, or encounter an error, we will see the device reappearing.
-				removeDevice(deviceID);
-			},500);
-			*/
         }
         else {
             const msg = response.error ? response.error : "HTTP 1.0 "+response.httpStatus;

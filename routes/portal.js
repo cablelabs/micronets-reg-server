@@ -41,6 +41,11 @@ router.get('/select-mso/:index', function(req, res) {
 });
 
 
+router.get('/popup-check', function(req, res) {
+    res.render('popup-check'); 
+});
+
+
 // Subscriber has selected the device (we don't know who subscriber is yet) (XHR)
 router.get('/select-device/:uid', function(req, res) {
     deviceMap.selectDevice(req.params.uid, function(err) {
