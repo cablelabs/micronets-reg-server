@@ -21,9 +21,13 @@ let baseURL = location.href.substring(0,location.href.indexOf('portal/device-lis
 // popup checker
 var childWindow;
 var cookieName = "popups-enabled";
+var popupTimer;
+
 function popupCallback() {
 	console.log("child called back");
 	Cookies.set(cookieName, "true");
+	clearTimeout(popupTimer);
+	popupTimer = undefined;
 	setTimeout(function(){
 		childWindow.close();
 	}, 3000);
@@ -79,15 +83,15 @@ function onLoad() {
 	function popupCheck() {
 		console.log("onLoad");
 
-		if (!Cookies.get(cookieName)) {
-			console.log("popup cookie not set yet");
+		var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+		// With Safari, we have to check every time because popups are not site specific.
+		if (is_safari || !Cookies.get(cookieName)) {
 
 			childWindow = window.open("/portal/popup-check", "", "width=400, height=10" );
 
-			var timer = setTimeout(function(){
-				if (!Cookies.get(cookieName)) {
-					alert("Please Allow Popups for this site (Micronets Demo)");
-				}
+			popupTimer = setTimeout(function(){
+				alert("Please Allow Popups for this site (Micronets Demo)");
 			}, 3000);
 		}
 	}
