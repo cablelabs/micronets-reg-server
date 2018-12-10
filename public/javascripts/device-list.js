@@ -88,7 +88,7 @@ function onLoad() {
 		// With Safari, we have to check every time because popups are not site specific.
 		if (is_safari || !Cookies.get(cookieName)) {
 
-			childWindow = window.open("/portal/popup-check", "", "width=400, height=10" );
+			childWindow = window.open("popup-check", "", "width=400, height=10" );
 
 			popupTimer = setTimeout(function(){
 				alert("Please Allow Popups for this site (Micronets Demo)");
