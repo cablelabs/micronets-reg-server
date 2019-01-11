@@ -104,13 +104,18 @@ Header Fields:
 
 POST data:
 
-  {
-      "UID": "584BB997-3193-4CD0-BD42-4E9359A58E81",
-      "SN": "SCNB-00523",
-      "MFG": "ShureCare",
-      "TYPE": "Nebulizer",
-      "MAC": "4C:32:75:90:33:B3",
-      "MODEL": "Breath-Easy"
+    {
+      "deviceName": "ProtoMed 2",
+      "vendor": "AcmeMeds",
+      "modelUID64": "BQ0LDQsMDAM",
+      "macAddress": "B8:27:EB:D8:DF:30",
+      "deviceConnection": "wifi",
+      "deviceID": "ecea43279f2b5e89d3d49537c194b956f4863612606f8a2039fca7ac64b61de1",
+      "model": "Heart-Assure",
+      "modelUID64": "BQ0LDQsMDAM",
+      "type": "Heartrate Monitor",
+      "class": "Medical",
+      "serial": "AH-64B61DE1"
     }
 
 #### response:
