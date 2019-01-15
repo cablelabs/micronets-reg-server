@@ -1,4 +1,4 @@
-# reg-server
+# micronets-reg-server
 
 This is a public facing server used by medical facilities (e.g. clinics) to onboard a medical device to an MSO subscriber's account. Specifically, it facilitates the installation of the credentials required to connect the device to the subscriber's WiFi network.
 
@@ -30,7 +30,8 @@ The registration token is used to identify an onboarding session. It is generate
 - modify `lib/config.js` to provide default endpoints to the mso-portal and auth-server instances
 - modify `/etc/micronets/config/reg-server.conf` when running as a docker container to override endpoints (see `micronets` repo readme)
 - pre-provision the medical device to connect to the Registration Server when the onboarding button is pressed.
-  * This is done by updating `/etc/micronets/config/registration.conf` on the Raspberry Pi Zero W device.
+  * This is done by updating `/etc/micronets/config/thisRegistration.conf` on the Raspberry Pi Zero W device.
+  * (default initial settings are copied from `/etc/micronets/config/registration.conf`)
 
 ## Runtime Dependencies
  - mso-portal or mso-portal-stub (MSO Portal), and any upstream components, eg. micronets CA, subscriber DB, etc.
