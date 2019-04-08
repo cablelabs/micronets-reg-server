@@ -22,8 +22,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/index'));
-app.use('/device', require('./routes/device'));
-app.use('/portal', require('./routes/portal'));
+app.use('/device/v1/', require('./routes/device'));
+
+// Not an API, so no versioning.
+app.use('/portal/', require('./routes/portal'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -42,7 +42,7 @@ The registration token is used to identify an onboarding session. It is generate
 ![schematic](./doc/onboarding_sequence.png)
 
 
-### Clinic representative opens the registration application on the Registration Server - `GET /portal/device-list` 
+### Clinic representative opens the registration application on the Registration Server - `GET /portal/device-list`
  - Advertised (available) medical devices (or test scripts) appear on screen when they activate the onboarding process.
 
 ### Advertise Device
@@ -58,13 +58,13 @@ The registration token is used to identify an onboarding session. It is generate
 
 ### Present Subscriber Authorization Screen
  - The registration application redirects to the Authorization Server - `GET /register-device`. This is a LONG POLL and does not return.
- - The Authorization Server obtains a registration token by sending a `POST /portal/registration-token` to the MSO Portal.
+ - The Authorization Server obtains a registration token by sending a `POST /portal/v1/registration-token` to the MSO Portal.
  - The Authorization Server returns an authorization page containing the selected device information and a QRCode.
 
 ### Authorized Device Provisioning
  - The subscriber scans the QRCode with an MSO provided mobile scanner application (or click on QRCode for testing)
  - The scanner application sends the session information extracted from the QRCode to the Idora Credential Server
- - The Idora Credential Server sends a `POST /authSession` request to the Authorization Server.
+ - The Idora Credential Server sends a `POST /v1/authSession` request to the Authorization Server.
  - The Authorization Server ends the `/register-device` long poll, returning the registration token, deviceID, subscriberID and SSID to the clinic browser registration application.
 
 ### Pair Device
@@ -72,14 +72,14 @@ The registration token is used to identify an onboarding session. It is generate
  - The `pair-device` page displays pairing information and a progress bar for the duration of the pairing process.
 
 ### Request CSR Template
- - The Registration Server sends a `POST /ca/csrt` request to the MSO Portal.
+ - The Registration Server sends a `POST portal/v1/ca/csrt` request to the MSO Portal.
  - The MSO Portal generates the template and returns it to the Registration Server.
- - The Registration Server ends the `/device/advertise` long poll, returning the CSRT and the registration token to the device (or test script).
+ - The Registration Server ends the `/device/v1/advertise` long poll, returning the CSRT and the registration token to the device (or test script).
 
 ### Request WiFi certificate
  - The device creates and signs a CSR using its private key and the keyType (eg. RSA:2048)
- - The device (or test script) sends a `POST /device/cert` request to the Registration Server with the CSR and the device token.
- - The Registration Server forwards the request to the MSO Portal endpoint `POST /ca/cert`.
+ - The device (or test script) sends a `POST portal/v1/device/cert` request to the Registration Server with the CSR and the device token.
+ - The Registration Server forwards the request to the MSO Portal endpoint `POST portal/v1/ca/cert`.
  - The MSO Portal forwards the request to the Identity Service Root CA.
  - The signed WiFi certificate, CA certificate, and subscriber metadata are returned to the Registration Server and then back to the device.
 
@@ -97,7 +97,7 @@ Method: POST
 
 The device metadata is sent to the registration server. The server stores this in a device map and retains/updates it throughout the pairing process. Note that this is a long poll. A response is not sent until the device is selected, authorized, and a CSRT is generated and returned.
 
-#### url: `/device/advertise`
+#### url: `/device/v1/advertise`
 
 Header Fields:
 
@@ -136,7 +136,7 @@ Method: POST
 
 The device advertisement, if active, is canceled
 
-#### url: `/device/cancel`
+#### url: `/device/v1/cancel`
 
 Header Fields:
 
@@ -158,7 +158,7 @@ Method: POST
 
 A CSR and a registration is presented. The request is forwared to the MSO Portal and a signed WiFi certificate, CA certificate, and subscriber metadata is returned.
 
-#### url: `/device/cert/`
+#### url: `/device/v1/cert/`
 
 Header Fields:
 
@@ -191,7 +191,7 @@ Origin: Device
 Method: POST
 
 The device has received and installed the requested certificates and updated the WPA supplicant configuration.
-#### url: `/device/pair-complete`
+#### url: `/device/v1/pair-complete`
 
 Header Fields:
 
@@ -225,4 +225,3 @@ Empty response
 	- *scripts/* - (no arguments required. Results are stored in `test/client` folder)
 		- *onboardDevice.sh* - simulates a physical medical device for the onboarding sequence.
 - *views/* - express templates (pug)
-
