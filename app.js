@@ -23,6 +23,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/index'));
 app.use('/device/v1/', require('./routes/device'));
+// backward compatibility
+app.use('/device/', require('./routes/device'));
 
 // Not an API, so no versioning.
 app.use('/portal/', require('./routes/portal'));
