@@ -91,7 +91,7 @@ request_cert() {
   echo "}" >> ../tmp/csr.json
 
   # Submit the CSR
-  curl -d @../tmp/csr.json "$REGSERVER_URL"/device/cert "${HEADERS[@]}" > ../tmp/certs.json
+  curl -d @../tmp/csr.json "$REGSERVER_URL"/device/v1/cert "${HEADERS[@]}" > ../tmp/certs.json
 
   # Parse Reply
   jq -r '.subscriber' ../tmp/certs.json > ../client/subscriber.json
@@ -113,7 +113,7 @@ request_cert() {
   echo "{" > ../tmp/complete.json
   echo "  \"deviceID\": \"$ID\"" >> ../tmp/complete.json
   echo "}" >> ../tmp/complete.json
-  curl -d @../tmp/complete.json "$REGSERVER_URL/device/pair-complete" "${HEADERS[@]}"
+  curl -d @../tmp/complete.json "$REGSERVER_URL/device/v1/pair-complete" "${HEADERS[@]}"
 }
 
 
@@ -121,7 +121,7 @@ while true
 do
     echo " "
     echo "Advertising Device: $DEV"
-    RESPONSE=$(curl "$REGSERVER_URL"/device/advertise --header 'Content-Type: application/json' -d "$DEV")
+    RESPONSE=$(curl "$REGSERVER_URL"/device/v1/advertise --header 'Content-Type: application/json' -d "$DEV")
     STATUS=$?
 
     echo "curl status: $STATUS"
